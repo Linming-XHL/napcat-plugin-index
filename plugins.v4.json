@@ -112,6 +112,20 @@
         "管理"
       ],
       "minVersion": "4.14.0"
+    },
+    {
+      "id": "napcat-plugin-group-revoke",
+      "name": "撤回猪手",
+      "version": "1.0",
+      "description": "多类型消息撤回",
+      "author": "鸡太美",
+      "homepage": "https://github.com/ovoox/napcat-plugin-group-revoke",
+      "downloadUrl": "https://github.com/ovoox/napcat-plugin-group-revoke/releases/download/v1.0.0/napcat-plugin-group-revoke.zip",
+      "tags": [
+        "群管",
+        "撤回"
+      ],
+      "minVersion": "1.0"
     }
   ]
 }
