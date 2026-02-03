@@ -10,7 +10,7 @@ NapCat 插件索引仓库
 |------|------|------|
 | `id` | string | 插件唯一标识，建议格式：`napcat-plugin-xxx` |
 | `name` | string | 插件显示名称 |
-| `version` | string | 插件版本号，遵循 [SemVer](https://semver.org/) 规范 |
+| `version` | string | 插件版本号 |
 | `description` | string | 插件简短描述 |
 | `author` | string | 作者名称 |
 | `homepage` | string | 插件主页/仓库地址 |
