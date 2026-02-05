@@ -17,6 +17,20 @@
       "minVersion": "4.14.0"
     },
     {
+      "id": "napcat-plugin-cleaner",
+      "name": "缓存清理",
+      "version": "1.2.0",
+      "description": "NapCat 缓存清理",
+      "author": "NapNeko",
+      "homepage": "https://napcat.napneko.icu",
+      "downloadUrl": "https://github.com/NapNeko/napcat-plugin-index/releases/download/v1.0.0/napcat-plugin-cleaner.zip",
+      "tags": [
+        "官方",
+        "工具"
+      ],
+      "minVersion": "4.14.0"
+    },
+    {
       "id": "napcat-plugin-aicat",
       "name": "AI Cat",
       "version": "1.3.0",
@@ -167,20 +181,6 @@
         "工具"
       ],
       "minVersion": "4.14.13"
-    },
-    {
-      "id": "napcat-plugin-cleaner",
-      "name": "缓存清理",
-      "version": "1.2.0",
-      "description": "NapCat 缓存清理",
-      "author": "NapNeko",
-      "homepage": "https://napcat.napneko.icu",
-      "downloadUrl": "https://github.com/NapNeko/napcat-plugin-index/releases/download/v1.0.0/napcat-plugin-cleaner.zip",
-      "tags": [
-        "官方",
-        "工具"
-      ],
-      "minVersion": "4.14.0"
     },
     {
       "id": "napcat-plugin-qemoji",
