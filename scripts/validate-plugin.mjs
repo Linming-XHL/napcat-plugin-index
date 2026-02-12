@@ -9,7 +9,7 @@
  * - 版本号格式（宽松 semver）
  * - 下载链接可达性（HEAD 请求）
  * - homepage 链接可达性
- * - tags 合法性
+ * - tags 类型校验（若提供）
  * - 与上一版本的 diff 检测（新增/更新/删除）
  * 
  * 用法：
@@ -31,13 +31,6 @@ const PLUGINS_FILE = resolve(ROOT, 'plugins.v4.json');
 
 // ======================== 配置 ========================
 
-/** 允许的 tags 列表 */
-const ALLOWED_TAGS = [
-    '官方', '工具', '娱乐', 'AI', '群管', '管理', '自动化',
-    '语音', '表情', '撤回', '游戏', '音乐', '图片', '视频',
-    '搜索', '翻译', '天气', '签到', '抽奖', '其他',
-];
-
 /** 插件 ID 命名规范 */
 const PLUGIN_ID_PATTERN = /^napcat-plugin-[a-z0-9]([a-z0-9-]*[a-z0-9])?$/;
 
@@ -45,7 +38,7 @@ const PLUGIN_ID_PATTERN = /^napcat-plugin-[a-z0-9]([a-z0-9-]*[a-z0-9])?$/;
 const VERSION_PATTERN = /^\d+\.\d+(\.\d+)?([.-][a-zA-Z0-9.]+)?$/;
 
 /** 必填字段 */
-const REQUIRED_FIELDS = ['id', 'name', 'version', 'description', 'author', 'homepage', 'downloadUrl', 'tags', 'minVersion'];
+const REQUIRED_FIELDS = ['id', 'name', 'version', 'description', 'author', 'homepage', 'downloadUrl', 'minVersion'];
 
 /** 链接检查超时（毫秒） */
 const LINK_CHECK_TIMEOUT = 15000;
@@ -114,17 +107,8 @@ function validatePluginFields(plugin, index) {
         logError(id, `minVersion 格式不正确: "${plugin.minVersion}"`);
     }
 
-    // tags 检查
-    if (Array.isArray(plugin.tags)) {
-        if (plugin.tags.length === 0) {
-            logWarn(id, 'tags 为空数组，建议至少添加一个标签');
-        }
-        for (const tag of plugin.tags) {
-            if (!ALLOWED_TAGS.includes(tag)) {
-                logWarn(id, `未知标签 "${tag}"，建议使用: ${ALLOWED_TAGS.join(', ')}`);
-            }
-        }
-    } else if (plugin.tags !== undefined) {
+    // tags 不再做规范校验（自由标签），仅保持数组类型约束
+    if (plugin.tags !== undefined && !Array.isArray(plugin.tags)) {
         logError(id, 'tags 必须是字符串数组');
     }
 
